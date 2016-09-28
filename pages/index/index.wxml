@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="box">
+  <view class="top-bar">
+    <view class="top-bar-item" id="index" catchtap="onTapTag">Kevinaskin.top</view>
+    <view class="top-bar-item" id="blog" catchtap="onTapTag">Blog</view>
+    <view class="top-bar-item" id="about" catchtap="onTapTag">About</view>
+  </view>
+  <view class='text-box'>
+     <view class="fixed-title" id="title" wx:for="{{title}}">{{item}}</view>
+  </view>
+  <view class="content-box">
+       <block wx:for="{{articleList}}">
+          <view class="block-container">
+            <view class="block-title">
+            <text>{{item.title}}</text>
+            </view>
+            <view class="block-text">
+              <text>{{item.text}}</text>
+            </view>
+          </view>
+       </block>
+  </view>
+  
+</view>
