@@ -9,10 +9,11 @@
      <view class="fixed-title" id="title" wx:for="{{title}}">{{item}}</view>
   </view>
   <view class="content-box">
+      <view class="name">{{func}}</view>
        <block wx:for="{{articleList}}">
           <view class="block-container">
             <view class="block-title">
-            <text>{{item.title}}</text>
+            <text>{{item.title || item.username+" 说："}}</text>
             </view>
             <view class="block-text">
               <text>{{item.text}}</text>

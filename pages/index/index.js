@@ -15,11 +15,13 @@ Page({
   onLoad: function () {
     console.log('onLoad');
     this.setData({
-      title:["Welcome to Kevinaskin.top"],
-      articleList:''
+      title:["to Kevinaskin.top"],
+      articleList:'',
+      func:'Welcome'
     })
   },
   onTapTag:function(event){
+    var that = this;
     var id = event.currentTarget.id;
     console.log(id);
     if(id == "blog"){
@@ -27,10 +29,7 @@ Page({
     }else if(id == 'index'){
       this.onLoad();
     }else{
-      this.setData({
-        articleList:'',
-        title:['Github:github.com/kevinaskin','mobile:15067148672','job:Web前端']
-      })
+      that.getLog();
     }
   },
   getData:function(){
@@ -41,7 +40,22 @@ Page({
         console.log(data);
         that.setData({
           articleList:data.data,
-          title:''
+          title:'',
+          func:'Blog'
+        })
+      }
+    })
+  },
+  getLog:function(){
+    var that = this;
+    wx.request({
+      url:"http://kevinaskin.top/about/getmsg",
+      success:function(data){
+        console.log(data.data);
+        that.setData({
+          articleList:data.data,
+          title:'',
+          func:'Comments'
         })
       }
     })
